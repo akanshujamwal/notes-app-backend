@@ -2,10 +2,11 @@
 const app = require('./src/app')
 const connectDB = require('./src/db/db')
 
+async function startServer() {
+    await connectDB()
+    app.listen(3001, () => {
+        console.log('Server is running on port 3001')
+    })
+}
 
-connectDB()
-
-// this is for listening the server 
-app.listen(3001, ()=>{
-    console.log('Server is running of port 3001')
-}) // here is 3000 that is the port no 
+startServer()
